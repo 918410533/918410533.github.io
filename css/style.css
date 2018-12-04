@@ -5,7 +5,7 @@ html {
   font-size: 14px;
 }
 body {
-  background-color: #f7f7f7;
+  background-color: #dbdbdb;
 }
 body,
 button,
@@ -103,7 +103,7 @@ img.thumbnail {
 }
 .navbar-main .navbar-item.is-active {
   color: #3273dc;
-  background-color: transparent;
+  background-color: #fff;
 }
 @media screen and (max-width: 1087px) {
   .navbar-main .navbar-menu {
