@@ -2,31 +2,18 @@
 <html lang="Ch">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>决策树到底是棵什么树？(0) - I’ll try anything once</title>
+<title>Categoria: 决策树 - I’ll try anything once</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="简要因为最近在看决策树的知识，所以想做个总结。应该会分很多篇来总结，主要讨论的是3个算法。  ID3 C4.5 CART">
-<meta name="keywords" content="统计学习方法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="决策树到底是棵什么树？(0)">
-<meta property="og:url" content="http://yoursite.com/2018/12/05/jiuceshu/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="I’ll try anything once">
+<meta property="og:url" content="http://yoursite.com/categories/统计学习方法/决策树/index.html">
 <meta property="og:site_name" content="I’ll try anything once">
-<meta property="og:description" content="简要因为最近在看决策树的知识，所以想做个总结。应该会分很多篇来总结，主要讨论的是3个算法。  ID3 C4.5 CART">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?P(X&space;=&space;x_{i})=p_{i},&space;i=1,2,...,n">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?H(X)=-\sum_{i=1}^{n}p_{i}logp_{i}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?P(X=x_{i},Y=y_{j})=p_{ij},i=1,2,...,n;j=1,2,...,m;">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?H(Y|X)=\sum_{i=1}^{n}p_{i}H(Y|X=x_{i})">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?g(D,A)=H(D)-H(D|A&space;)">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?g_{R}(D,A)=\frac{g(D,A)}{H_{A}(D)}">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?H_{A}(D)=-\sum_{i=1}^{n}\frac{|D_{i}|}{|D|}log_{2}\frac{|D_{i}|}{|D|}">
-<meta property="og:updated_time" content="2018-12-09T06:39:16.686Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="决策树到底是棵什么树？(0)">
-<meta name="twitter:description" content="简要因为最近在看决策树的知识，所以想做个总结。应该会分很多篇来总结，主要讨论的是3个算法。  ID3 C4.5 CART">
-<meta name="twitter:image" content="https://latex.codecogs.com/gif.latex?P(X&space;=&space;x_{i})=p_{i},&space;i=1,2,...,n">
+<meta name="twitter:title" content="I’ll try anything once">
 
 
 
@@ -124,11 +111,6 @@
 			<div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-				
-                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -144,11 +126,25 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">Categorias</a></li>
+            
+            <li><a href="/categories/统计学习方法/">统计学习方法</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">决策树</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-image">
-        <span class="image is-7by1">
+        <a href="/2018/12/05/jiuceshu/" class="image is-7by1">
             <img class="thumbnail" src="http://i1.bvimg.com/670817/063fd1e04c2430d9.jpg" alt="决策树到底是棵什么树？(0)">
-        </span>
+        </a>
     </div>
     
     <div class="card-content article ">
@@ -173,7 +169,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                决策树到底是棵什么树？(0)
+                <a class="has-link-black-ter" href="/2018/12/05/jiuceshu/">决策树到底是棵什么树？(0)</a>
             
         </h1>
         <div class="content">
@@ -181,114 +177,26 @@
 <ul>
 <li>ID3</li>
 <li>C4.5</li>
-<li>CART<a id="more"></a>
-</li>
-</ul>
-<h2 id="什么是决策树？"><a href="#什么是决策树？" class="headerlink" title="什么是决策树？"></a>什么是决策树？</h2><blockquote>
-<p>　　决策树它既不是铁树，也不是松树，更不是核桃树。我们可以拆成两部分来看 <strong>决策</strong>以及<strong>树</strong>。决策是它的<strong>功能</strong>，而树则是他的<strong>结构</strong>。功能与结构相结合便成为了<strong>模型</strong>。决策树的功能也分为<strong>分类</strong>与<strong>回归</strong>，我们会讨论的是<strong>分类</strong>的功能。</p>
-</blockquote>
-<h2 id="决策树学习"><a href="#决策树学习" class="headerlink" title="决策树学习"></a>决策树学习</h2><p>决策树的学习主要有三个步骤</p>
-<ul>
-<li>特征选择</li>
-<li>决策树的生成</li>
-<li>决策树的剪枝</li>
-</ul>
-<p>所以对于前面提到的三种算法的讨论也会按着这3大步骤去进行叙述。</p>
-<h2 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h2><blockquote>
-<p>　　在开始讨论算法之前，先对所需要的数学知识做一个简单的梳理，方便后面更好去理解模型对于数学知识的应用所产生的效果，首先的一个是<strong>信息增益</strong>，但在说信息增益之前先要说明<strong>熵</strong>与<strong>条件熵</strong></p>
-</blockquote>
-<h3 id="熵"><a href="#熵" class="headerlink" title="熵"></a><strong>熵</strong></h3><p><strong>定义： 表示随机变量不确定性的度量</strong><br>设 <strong><em>X</em></strong> 是一个取有限个值的离散<strong>随机变量</strong>，其概率分布为</p>
-<center><br><img src="https://latex.codecogs.com/gif.latex?P(X&space;=&space;x_{i})=p_{i},&space;i=1,2,...,n" title="P(X = x_{i})=p_{i}, i=1,2,...,n"><br></center><br>则随机变量 <strong><em>X</em></strong> 的熵定义为<br><center><br><img src="https://latex.codecogs.com/gif.latex?H(X)=-\sum_{i=1}^{n}p_{i}logp_{i}" title="H(X)=-\sum_{i=1}^{n}p_{i}logp_{i}"><br></center>
-
-<p><strong>数学含义：熵越大，随机变量的不确定性越大（就是说熵越大随机变量越不知道取哪个值，反之熵越小越确定随机变量要取哪个值）</strong></p>
-<ul>
-<li>当随机变量只有两个值时，例如0，1时，设取1的概率为<strong>p</strong>，则<strong><em>H（X）</em></strong>在 <strong>p=0.5</strong>处会取得最大值（函数图像就省略了，画起来比较麻烦），说明当<strong>p=0.5</strong>随机变量的不确定度最大，只有百分之50的概率去判断是1，这就无法非常清晰的知道随机变量到底是取1还是取0，所以是存在了一个不确定的因素。</li>
-<li>反之如果<strong>p=0.8</strong>时，<strong><em>H（X）</em></strong>则会变得很小，说明随机变量有80%的概率等于1让公式的不确定性有了一个降低，随机变量更加确切的要取1，这就是对这个公式所表达的一个不确定性的解释。</li>
-<li>当随机变量有三个值时，例如0，1，2时，设值为0时的概率为<strong>P<sub>0</sub></strong>，值为1时的概率为<strong>P<sub>1</sub></strong>，这时则需要用3维的坐标对<strong><em>H（X）</em></strong>函数进行表示，<strong>x</strong>，<strong>y</strong>轴表示<strong>P<sub>0</sub></strong>与<strong>P<sub>1</sub></strong>的值，<strong>z</strong>轴则表示<strong><em>H（X）</em></strong>的值。所以随着变量可取值数量的增加维度也会随之上升。</li>
-</ul>
-<h3 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a><strong>条件熵</strong></h3><p><strong>定义： 随机变量 <em>X</em> 给定的条件下，随机变量 <em>Y</em> 的不确定性</strong><br>设有随机变量<strong><em>（X，Y）</em></strong>，其联合概率分布为</p>
-<center><br><img src="https://latex.codecogs.com/gif.latex?P(X=x_{i},Y=y_{j})=p_{ij},i=1,2,...,n;j=1,2,...,m;" title="P(X=x_{i},Y=y_{j})=p_{ij},i=1,2,...,n;j=1,2,...,m;"><br></center><br>条件熵 <strong><em>H（Y | X）</em></strong> 定义为 <strong>X</strong> 给定条件下， <strong>Y</strong> 的条件概率分布的熵对X的数学期望<center><br><img src="https://latex.codecogs.com/gif.latex?H(Y|X)=\sum_{i=1}^{n}p_{i}H(Y|X=x_{i})" title="H(Y|X)=\sum_{i=1}^{n}p_{i}H(Y|X=x_{i})"><br></center>
-
-<p><strong>数学含义：<em>Y</em> 在 <em>X</em> 的条件下熵越大，随机变量的不确定性越大（同熵的概念，只是在上的基础上加上了一个特征的限定）</strong></p>
-<ul>
-<li>要注意的是条件熵由两部分构成，一部分是<strong>条件概率分布的熵</strong>，一部分是<strong>期望</strong>。</li>
-<li><strong>条件概率分布的熵</strong>计算的则是特征A的某个取值下，随机变量Y取值的不确定性的大小，即是熵的大小。</li>
-<li>对X进行<strong>期望</strong>计算则是因为，在特征A的每个值的条件下，随机变量Y的不确定性（熵）都不相同，为了得到总的来说特征A（而不是某个取值）对于随机变量取值的不确定性的改变，则进行<strong>期望</strong>计算，得到的是特征A的某个取值下的随机变量的取值不确定性的改变的平均值，这个平均值则是特征A对于随机变量Y的取值，总的不确定性的改变。</li>
-</ul>
-<h3 id="信息增益-1"><a href="#信息增益-1" class="headerlink" title="信息增益"></a><strong>信息增益</strong></h3><p><strong>定义： 特征A对训练数据集D的信息增益g(D，A)，定义为集合D的经验熵<em>H(D)</em>与特征A给定条件下D的经验条件熵H（D|A）之差</strong></p>
-<p><center><br><img src="https://latex.codecogs.com/gif.latex?g(D,A)=H(D)-H(D|A&space;)" title="g(D,A)=H(D)-H(D|A )"><br></center></p>
-<ul>
-<li>当 <strong><em>g(D,A) &gt; 0</em></strong> 时，不确定性下降，说明有特征A的限定与没有特征A的限定相比较起来，有特征A的限定能帮助我们更好的去确定随机变量的取值</li>
-<li>当 <strong><em>g(D,A) &lt; 0</em></strong> 时，不确定性上升，说明有特征A的限定与没有特征A的限定相比较起来，有特征A的限定不能帮助我们更好的去确定随机变量的取值</li>
-<li>我们就根据这样，<strong>特征对于随机变量取值的确定性是否有帮助</strong>，来去选择我们所需要的特征</li>
-</ul>
-<h3 id="信息增益比"><a href="#信息增益比" class="headerlink" title="信息增益比"></a><strong>信息增益比</strong></h3><p><strong>定义： 特征A对训练数据集D的信息增益比g<sub>R</sub>(D，A)，定义其信息增益g(D，A)与训练数据集D关于特征A的值的熵H<sub>A</sub>（D）之比</strong></p>
-<p><center><br><img src="https://latex.codecogs.com/gif.latex?g_{R}(D,A)=\frac{g(D,A)}{H_{A}(D)}" title="g_{R}(D,A)=\frac{g(D,A)}{H_{A}(D)}"><br></center><br>其中，</p>
-<p><center><br><img src="https://latex.codecogs.com/gif.latex?H_{A}(D)=-\sum_{i=1}^{n}\frac{|D_{i}|}{|D|}log_{2}\frac{|D_{i}|}{|D|}" title="H_{A}(D)=-\sum_{i=1}^{n}\frac{|D_{i}|}{|D|}log_{2}\frac{|D_{i}|}{|D|}"><br></center><br>n是特征A取值的个数。</p>
-<ul>
-<li>如果单是用信息增益来判读选取哪个特征来帮助我们确定随机变量的值，会存在偏向于选择在数据集中取值较多的特征的问题（这样就会因为数据集的特殊性，而影响了我们判断真实的情况是怎么样的），根据函数的图像我们可以知道这一点。</li>
-<li>信息增益比可以对这个问题进行一个矫正，这是选择特征的另外一种标准</li>
-<li>缺点是信息增益比偏向取值较少的特征，原因是当特征取值较少时<strong>H<sub>A</sub>(D)</strong>的值较小，因此其倒数较大，因而信息增益比较大。因而偏向取值较少的特征。</li>
-<li>基于以上缺点，并不是直接选择<strong>信息增益比</strong>最大的特征，而是先在候选特征中找出<strong>信息增益</strong>高于平均水平的特征，然后在这些特征中再选择<strong>信息增益比</strong>最高的特征。</li>
-</ul>
-
+<li>CART</li></ul>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/统计学习方法/">统计学习方法</a>
+                <a class="button is-size-7 is-light" href="/2018/12/05/jiuceshu/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
-    </div>
-</div>
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/03/my-test-file/">
-                <span class="level-item">最后还是搭了博客。。。。。。真香</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comentarios</h3>
-        
-<div id="valine-thread"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#valine-thread' ,
-        notify: true,
-        verify: true,
-        app_id: 'ysd39JPGfphGN7UBCDhS10NQ-gzGzoHsz',
-        app_key: 'mPD3J7xTvQzOzsvKWjAbo43Y',
-        placeholder: 'Say something...'
-    });
-</script>
 
-    </div>
-</div>
+
 </div>
                 
 
@@ -375,49 +283,6 @@
 </div>
     
         
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Catálogo
-            </h3>
-            <ul class="menu-list"><li>
-        <a class="is-flex" href="#简要">
-        <span class="has-mr-6">1</span>
-        <span>简要</span>
-        </a></li><li>
-        <a class="is-flex" href="#什么是决策树？">
-        <span class="has-mr-6">2</span>
-        <span>什么是决策树？</span>
-        </a></li><li>
-        <a class="is-flex" href="#决策树学习">
-        <span class="has-mr-6">3</span>
-        <span>决策树学习</span>
-        </a></li><li>
-        <a class="is-flex" href="#信息增益">
-        <span class="has-mr-6">4</span>
-        <span>信息增益</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#熵">
-        <span class="has-mr-6">4.1</span>
-        <span>熵</span>
-        </a></li><li>
-        <a class="is-flex" href="#条件熵">
-        <span class="has-mr-6">4.2</span>
-        <span>条件熵</span>
-        </a></li><li>
-        <a class="is-flex" href="#信息增益-1">
-        <span class="has-mr-6">4.3</span>
-        <span>信息增益</span>
-        </a></li><li>
-        <a class="is-flex" href="#信息增益比">
-        <span class="has-mr-6">4.4</span>
-        <span>信息增益比</span>
-        </a></li></ul></li></ul>
-        </div>
-    </div>
-</div>
-
     
         
 
