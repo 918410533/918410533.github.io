@@ -7,13 +7,13 @@
 
 
 
-    <meta name="description" content="简要因为最近在看决策树的知识，所以想做个总结。应该会分很多篇来总结，主要讨论的是3个算法。  ID3 C4.5 CART">
+    <meta name="description" content="简要因为最近在看决策树的知识，所以想做个总结。应该会分几篇来总结，主要讨论的是3个算法,讨论算法之前先理一理数学公式。">
 <meta name="keywords" content="统计学习方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="决策树到底是棵什么树？(0)">
 <meta property="og:url" content="http://yoursite.com/2018/12/05/jiuceshu/index.html">
 <meta property="og:site_name" content="I’ll try anything once">
-<meta property="og:description" content="简要因为最近在看决策树的知识，所以想做个总结。应该会分很多篇来总结，主要讨论的是3个算法。  ID3 C4.5 CART">
+<meta property="og:description" content="简要因为最近在看决策树的知识，所以想做个总结。应该会分几篇来总结，主要讨论的是3个算法,讨论算法之前先理一理数学公式。">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?P(X&space;=&space;x_{i})=p_{i},&space;i=1,2,...,n">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?H(X)=-\sum_{i=1}^{n}p_{i}logp_{i}">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?g(D,A)=H(D)-H(D|A&space;)">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?g_{R}(D,A)=\frac{g(D,A)}{H_{A}(D)}">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?H_{A}(D)=-\sum_{i=1}^{n}\frac{|D_{i}|}{|D|}log_{2}\frac{|D_{i}|}{|D|}">
-<meta property="og:updated_time" content="2018-12-09T06:39:16.686Z">
+<meta property="og:updated_time" content="2018-12-11T14:52:14.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树到底是棵什么树？(0)">
-<meta name="twitter:description" content="简要因为最近在看决策树的知识，所以想做个总结。应该会分很多篇来总结，主要讨论的是3个算法。  ID3 C4.5 CART">
+<meta name="twitter:description" content="简要因为最近在看决策树的知识，所以想做个总结。应该会分几篇来总结，主要讨论的是3个算法,讨论算法之前先理一理数学公式。">
 <meta name="twitter:image" content="https://latex.codecogs.com/gif.latex?P(X&space;=&space;x_{i})=p_{i},&space;i=1,2,...,n">
 
 
@@ -124,7 +124,7 @@
 			<div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
 				
@@ -165,7 +165,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 minutes read (About 1681 words)
+                    11 minutes read (About 1691 words)
                 </span>
                 
             </div>
@@ -177,13 +177,8 @@
             
         </h1>
         <div class="content">
-            <h2 id="简要"><a href="#简要" class="headerlink" title="简要"></a>简要</h2><p>因为最近在看决策树的知识，所以想做个总结。应该会分很多篇来总结，主要讨论的是3个算法。</p>
-<ul>
-<li>ID3</li>
-<li>C4.5</li>
-<li>CART<a id="more"></a>
-</li>
-</ul>
+            <h2 id="简要"><a href="#简要" class="headerlink" title="简要"></a>简要</h2><p>因为最近在看决策树的知识，所以想做个总结。应该会分几篇来总结，主要讨论的是3个算法,讨论算法之前先理一理数学公式。</p>
+<a id="more"></a>
 <h2 id="什么是决策树？"><a href="#什么是决策树？" class="headerlink" title="什么是决策树？"></a>什么是决策树？</h2><blockquote>
 <p>　　决策树它既不是铁树，也不是松树，更不是核桃树。我们可以拆成两部分来看 <strong>决策</strong>以及<strong>树</strong>。决策是它的<strong>功能</strong>，而树则是他的<strong>结构</strong>。功能与结构相结合便成为了<strong>模型</strong>。决策树的功能也分为<strong>分类</strong>与<strong>回归</strong>，我们会讨论的是<strong>分类</strong>的功能。</p>
 </blockquote>
@@ -256,6 +251,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/12/11/jueceshu2/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">决策树到底是棵什么树？(1)</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/03/my-test-file/">
@@ -271,7 +273,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comentarios</h3>
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
         
 <div id="valine-thread"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -327,17 +329,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        2
+                        3
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -347,7 +349,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         2
@@ -357,7 +359,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/inkspace">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -379,7 +381,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catálogo
+                Catalogue
             </h3>
             <ul class="menu-list"><li>
         <a class="is-flex" href="#简要">
@@ -463,7 +465,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categorias
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -488,7 +490,7 @@
                 <span class="level-item">统计学习方法</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/统计学习方法/决策树/">
@@ -496,7 +498,7 @@
                 <span class="level-item">决策树</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -508,9 +510,9 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
-        <a href="/tags/日常/" style="font-size: 10px;">日常</a> <a href="/tags/统计学习方法/" style="font-size: 10px;">统计学习方法</a>
+        <a href="/tags/日常/" style="font-size: 10px;">日常</a> <a href="/tags/统计学习方法/" style="font-size: 20px;">统计学习方法</a>
     </div>
 </div>
 
@@ -522,8 +524,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2018/12/11/jueceshu2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://i1.bvimg.com/670817/dc7a99e8b7add6fd.jpg" alt="决策树到底是棵什么树？(1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-11T14:05:39.000Z">2018-12-11</time></div>
+                    <a href="/2018/12/11/jueceshu2/" class="has-link-black-ter is-size-6">决策树到底是棵什么树？(1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/统计学习方法/">统计学习方法</a> / <a class="has-link-grey -link" href="/categories/统计学习方法/决策树/">决策树</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -571,7 +592,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -581,7 +602,7 @@
                     <span class="level-item">December 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -595,7 +616,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <ul class="menu-list">
                 
@@ -616,7 +637,7 @@
                             <span class="level-item">统计学习方法</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -641,8 +662,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2018/12/11/jueceshu2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://i1.bvimg.com/670817/dc7a99e8b7add6fd.jpg" alt="决策树到底是棵什么树？(1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-11T14:05:39.000Z">2018-12-11</time></div>
+                    <a href="/2018/12/11/jueceshu2/" class="has-link-black-ter is-size-6">决策树到底是棵什么树？(1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/统计学习方法/">统计学习方法</a> / <a class="has-link-grey -link" href="/categories/统计学习方法/决策树/">决策树</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -690,7 +730,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -700,7 +740,7 @@
                     <span class="level-item">December 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">3</span>
                 </span>
             </a>
         </li>
@@ -714,7 +754,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <ul class="menu-list">
                 
@@ -735,7 +775,7 @@
                             <span class="level-item">统计学习方法</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -864,10 +904,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
