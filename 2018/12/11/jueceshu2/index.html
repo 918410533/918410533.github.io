@@ -15,10 +15,12 @@
 <meta property="og:site_name" content="I’ll try anything once">
 <meta property="og:description" content="简要这篇文章主要讨论3个决策树算法  ID3 C4.5 CART">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-12-11T14:51:19.045Z">
+<meta property="og:image" content="https://latex.codecogs.com/gif.latex?\fn_jvn&space;A=\varnothing">
+<meta property="og:updated_time" content="2018-12-12T15:15:56.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树到底是棵什么树？(1)">
 <meta name="twitter:description" content="简要这篇文章主要讨论3个决策树算法  ID3 C4.5 CART">
+<meta name="twitter:image" content="https://latex.codecogs.com/gif.latex?\fn_jvn&space;A=\varnothing">
 
 
 
@@ -116,7 +118,7 @@
 			<div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
 				
@@ -157,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 20 words)
+                    4 minutes read (About 526 words)
                 </span>
                 
             </div>
@@ -173,8 +175,27 @@
 <ul>
 <li>ID3</li>
 <li>C4.5</li>
-<li>CART<a id="more"></a></li>
+<li>CART<a id="more"></a>
+</li>
 </ul>
+<h2 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a>ID3</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a><strong>描述</strong></h3><blockquote>
+<p>ID3 算法的核心是在决策树各个结点上应用信息增益准则选择特征，递归地构建决策树。</p>
+</blockquote>
+<h3 id="决策树生成过程"><a href="#决策树生成过程" class="headerlink" title="决策树生成过程"></a><strong>决策树生成过程</strong></h3><ol>
+<li>若 <strong><em>D</em></strong> 中所有实例属于同一类 <strong><em>C<sub>k</sub></em></strong> ,则<strong><em>T</em></strong> 为单结点树，并将类 <strong><em>C<sub>k</sub></em></strong> 作为该结点的类标记， 返回 <strong><em>T</em></strong> ；</li>
+<li>若 <img src="https://latex.codecogs.com/gif.latex?\fn_jvn&space;A=\varnothing" title="A=\varnothing"> ，则 <strong><em>T</em></strong> 为单结点树，并将 <strong>D</strong> 中实例数最大的类 <strong><em>C<sub>k</sub></em></strong> 作为该结点的类标记，返回 <strong><em>T</em></strong>；</li>
+<li>否则， 计算 <strong><em>A</em></strong> 中各特征对 <strong><em>D</em></strong> 的信息增益，选择信息增益最大的特征 <strong><em>A<sub>g</sub></em></strong> ;</li>
+<li>如果 <strong><em>A<sub>g</sub></em></strong> 的信息增益小于阈值，则置 <strong><em>T</em></strong> 为单结点树，并将 <strong><em>D</em></strong> 中实例数最大的类 <strong><em>C<sub>k</sub></em></strong> 作为该结点的类标记，返回 <strong><em>T</em></strong>；</li>
+<li>否则，对 <strong><em>A<sub>g</sub></em></strong> 的每一可能值 <strong><em>a<sub>i</sub></em></strong> ，依 <strong><em>A<sub>g</sub> = a<sub>i</sub></em></strong> 将 <strong><em>D</em></strong> 分割为若干非空子集 <strong><em>D<sub>i</sub></em></strong> ,将 <strong><em>D<sub>i</sub></em></strong> 中实例数最大的类作为标记，构建子结点，由结点及其子结点构成树 <strong><em>T</em></strong> ，返回 <strong><em>T</em></strong>；</li>
+<li>对第 <strong><em>i</em></strong> 个子结点，以 <strong><em>D<sub>i</sub></em></strong> 为训练集，以  <strong><em>A - {A<sub>g</sub>}</em></strong> 为特征集，递归调用1-5步，得到子树 <strong><em>T<sub>i</sub></em></strong> ，返回 <strong><em>T<sub>i</sub></em></strong>；</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a><strong>缺点</strong></h3><ul>
+<li>算法增长树的每一个分支的深度，直到恰好能对训练样例完美地分类，存在决策树过度拟合。</li>
+<li>在搜索过程中不进行回溯。所以，它易受无回溯的爬山搜索中的常见风险影响：收敛到局部最优而不是全局最优。</li>
+<li>只能处理离散数据，并且倾向于选择取值较多的特征（这是在上篇文章结尾所提到的一个问题，如果只是以信息增益来作为分割特征的选择标准，则会出现这样的问题，我们需要对选择标准做一个修正，这就是接下来要提到的C4.5算法）。</li>
+</ul>
+<h2 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a>C4.5</h2><h3 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h3><blockquote>
+</blockquote>
 
         </div>
         
@@ -215,7 +236,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        <h3 class="title is-5 has-text-weight-normal">Comentarios</h3>
         
 <div id="valine-thread"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -271,7 +292,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -281,7 +302,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -291,7 +312,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         2
@@ -301,7 +322,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/inkspace">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -323,13 +344,37 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catalogue
+                Catálogo
             </h3>
             <ul class="menu-list"><li>
         <a class="is-flex" href="#简要">
         <span class="has-mr-6">1</span>
         <span>简要</span>
-        </a></li></ul>
+        </a></li><li>
+        <a class="is-flex" href="#ID3">
+        <span class="has-mr-6">2</span>
+        <span>ID3</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#描述">
+        <span class="has-mr-6">2.1</span>
+        <span>描述</span>
+        </a></li><li>
+        <a class="is-flex" href="#决策树生成过程">
+        <span class="has-mr-6">2.2</span>
+        <span>决策树生成过程</span>
+        </a></li><li>
+        <a class="is-flex" href="#缺点">
+        <span class="has-mr-6">2.3</span>
+        <span>缺点</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#C4-5">
+        <span class="has-mr-6">3</span>
+        <span>C4.5</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#描述-1">
+        <span class="has-mr-6">3.1</span>
+        <span>描述</span>
+        </a></li></ul></li></ul>
         </div>
     </div>
 </div>
@@ -379,7 +424,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             <li>
@@ -424,7 +469,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
         <a href="/tags/日常/" style="font-size: 10px;">日常</a> <a href="/tags/统计学习方法/" style="font-size: 20px;">统计学习方法</a>
     </div>
@@ -438,7 +483,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -506,7 +551,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -530,7 +575,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <ul class="menu-list">
                 
@@ -576,7 +621,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -644,7 +689,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -668,7 +713,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <ul class="menu-list">
                 
@@ -818,10 +863,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
