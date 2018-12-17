@@ -15,10 +15,15 @@
 <meta property="og:site_name" content="I’ll try anything once">
 <meta property="og:description" content="简要前面我们提到了决策树的特征选择以及决策树的生成，那么想要让一棵树变得更好看，修剪则是有必要的，所以这篇文章会讲讲决策树算法三大步骤的最后一步——剪枝。">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-12-15T12:59:08.585Z">
+<meta property="og:image" content="https://latex.codecogs.com/gif.latex?C_{a}(T)=\sum_{t=1}^{|T|}N_{t}H_{t}(T)+\alpha&space;|T|">
+<meta property="og:image" content="https://latex.codecogs.com/gif.latex?H_{t}(T)=-\sum_{K}^{&space;}\frac{N_{tk}}{N_{t}}log\frac{N_{tk}}{N_{t}}">
+<meta property="og:image" content="https://latex.codecogs.com/gif.latex?C(T)=\sum_{t=1}^{|T|}N_{t}H_{t}(T)=-\sum_{t=1}^{|T|}\sum_{k=1}^{K}N_{tk}log\frac{N_{tk}}{N_{t}}">
+<meta property="og:image" content="https://latex.codecogs.com/gif.latex?C_{\alpha&space;}(T)=C(T)+\alpha&space;|T|">
+<meta property="og:updated_time" content="2018-12-17T05:14:13.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树到底是棵什么树？(2)">
 <meta name="twitter:description" content="简要前面我们提到了决策树的特征选择以及决策树的生成，那么想要让一棵树变得更好看，修剪则是有必要的，所以这篇文章会讲讲决策树算法三大步骤的最后一步——剪枝。">
+<meta name="twitter:image" content="https://latex.codecogs.com/gif.latex?C_{a}(T)=\sum_{t=1}^{|T|}N_{t}H_{t}(T)+\alpha&space;|T|">
 
 
 
@@ -157,7 +162,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 87 words)
+                    4 minutes read (About 632 words)
                 </span>
                 
             </div>
@@ -170,6 +175,22 @@
         </h1>
         <div class="content">
             <h2 id="简要"><a href="#简要" class="headerlink" title="简要"></a>简要</h2><p>前面我们提到了决策树的<strong>特征选择</strong>以及<strong>决策树的生成</strong>，那么想要让一棵树变得更好看，修剪则是有必要的，所以这篇文章会讲讲决策树算法三大步骤的最后一步——<strong>剪枝</strong>。<br><a id="more"></a></p>
+<h2 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h2><ul>
+<li>前面我们讨论过决策树学习的模型的各种缺点，<strong>过拟合</strong>几乎是一个通病，过拟合的原因就在于学习时<strong>过多</strong>地考虑如何提高对训练数据的正确分类，从而构建出了过于复杂的决策树。</li>
+<li>那么在决策树学习中将已生成的树进行简化的过程称为<strong>剪枝</strong>，具体的就是从已生成的树上裁掉一些子树或叶结点，并将其<strong>根结点</strong>或<strong>父节点</strong>作为新的叶结点，从而简化分类模型。</li>
+</ul>
+<h2 id="决策树学习的剪枝算法"><a href="#决策树学习的剪枝算法" class="headerlink" title="决策树学习的剪枝算法"></a>决策树学习的剪枝算法</h2><p>决策树的剪枝往往通过<strong>极小化</strong>决策树整体的<strong>损失函数</strong>或<strong>代价函数</strong>来实现。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>设树<strong><em>T</em></strong> 的叶结点个数为| <strong><em>T</em></strong> |，<strong>t</strong> 是树 <strong><em>T</em></strong> 的叶结点，该叶结点有 <strong><em>N<sub>t</sub></em></strong> 个样本点，其中 <strong>k</strong> 类的样本点有  <strong><em>N<sub>tk</sub></em></strong> 个，<strong>k=1,2,…,K</strong>, <strong><em>H<sub>t</sub>(T)</em></strong> 为叶结点 <strong>t</strong> 上的经验熵， <strong>a&gt;=0</strong> 为参数，则决策树学习的<strong>损失函数</strong>可以定义为<center><img src="https://latex.codecogs.com/gif.latex?C_{a}(T)=\sum_{t=1}^{|T|}N_{t}H_{t}(T)&plus;\alpha&space;|T|" title="C_{a}(T)=\sum_{t=1}^{|T|}N_{t}H_{t}(T)+\alpha |T|"><br></center><br>其中<strong>经验熵</strong>为<center><br><img src="https://latex.codecogs.com/gif.latex?H_{t}(T)=-\sum_{K}^{&space;}\frac{N_{tk}}{N_{t}}log\frac{N_{tk}}{N_{t}}" title="H_{t}(T)=-\sum_{K}^{ }\frac{N_{tk}}{N_{t}}log\frac{N_{tk}}{N_{t}}"><br></center><br>将<strong>损失函数</strong>右端第一项记作<center><br><img src="https://latex.codecogs.com/gif.latex?C(T)=\sum_{t=1}^{|T|}N_{t}H_{t}(T)=-\sum_{t=1}^{|T|}\sum_{k=1}^{K}N_{tk}log\frac{N_{tk}}{N_{t}}" title="C(T)=\sum_{t=1}^{|T|}N_{t}H_{t}(T)=-\sum_{t=1}^{|T|}\sum_{k=1}^{K}N_{tk}log\frac{N_{tk}}{N_{t}}"><br></center><br>这时有<center><br><img src="https://latex.codecogs.com/gif.latex?C_{\alpha&space;}(T)=C(T)&plus;\alpha&space;|T|" title="C_{\alpha }(T)=C(T)+\alpha |T|"><br></center></p>
+<h3 id="数学含义"><a href="#数学含义" class="headerlink" title="数学含义"></a>数学含义</h3><ul>
+<li><strong>C(T)</strong> 表示模型对训练数据的预测误差（不同的决策树生成算法他的预测误差的公式不同，例如CART利用的是基尼指数，C4.5利用的是信息增益比）</li>
+<li><strong>|T|</strong> 表示模型复杂度，参数<strong>α</strong>则是控制<strong>模型复杂度</strong>和<strong>预测误差</strong>之间的影响</li>
+</ul>
+<h2 id="剪枝过程"><a href="#剪枝过程" class="headerlink" title="剪枝过程"></a>剪枝过程</h2><ol>
+<li>计算每个结点的<strong>经验熵</strong></li>
+<li>递归地从树的结点向上回缩，比较回缩到父结点之前与之后的整体树的损失函数，如果之前比之后的大，则进行剪枝，将父结点变成新的叶结点。</li>
+<li>返回2，直到不能继续为止，得到损失函数最小的子树<strong>T<sub>α</sub></strong></li>
+</ol>
+<p>上面这个过程是一个较为简略的描述，针对不同的算法，剪枝的过程也各有一些细节上的不同。</p>
 <p><strong>Reference</strong>:<br>[1] 《统计学习方法》</p>
 
         </div>
@@ -325,6 +346,26 @@
         <a class="is-flex" href="#简要">
         <span class="has-mr-6">1</span>
         <span>简要</span>
+        </a></li><li>
+        <a class="is-flex" href="#剪枝">
+        <span class="has-mr-6">2</span>
+        <span>剪枝</span>
+        </a></li><li>
+        <a class="is-flex" href="#决策树学习的剪枝算法">
+        <span class="has-mr-6">3</span>
+        <span>决策树学习的剪枝算法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#定义">
+        <span class="has-mr-6">3.1</span>
+        <span>定义</span>
+        </a></li><li>
+        <a class="is-flex" href="#数学含义">
+        <span class="has-mr-6">3.2</span>
+        <span>数学含义</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#剪枝过程">
+        <span class="has-mr-6">4</span>
+        <span>剪枝过程</span>
         </a></li></ul>
         </div>
     </div>
