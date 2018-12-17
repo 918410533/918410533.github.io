@@ -2,18 +2,27 @@
 <html lang="Ch">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Category: 决策树 - I’ll try anything once</title>
+<title>集成学习三部曲之Bagging - I’ll try anything once</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="I’ll try anything once">
-<meta property="og:url" content="http://yoursite.com/categories/统计学习方法/决策树/index.html">
+    <meta name="description" content="简要因为我们之前总结了决策树的一些东西，那么紧接着我们就可以来讲讲集成学习了。集成学习会讲到以以下几个算法思想来建立的一些机器学习算法。  Bagging Boosting Stacking  那么本篇会开始第一个思想——Bagging">
+<meta name="keywords" content="统计学习方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集成学习三部曲之Bagging">
+<meta property="og:url" content="http://yoursite.com/2018/12/17/jichengsuanfa/index.html">
 <meta property="og:site_name" content="I’ll try anything once">
+<meta property="og:description" content="简要因为我们之前总结了决策树的一些东西，那么紧接着我们就可以来讲讲集成学习了。集成学习会讲到以以下几个算法思想来建立的一些机器学习算法。  Bagging Boosting Stacking  那么本篇会开始第一个思想——Bagging">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://i.loli.net/2018/12/17/5c179896601c2.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/17/5c179edb5d7d9.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/17/5c17b4f91d428.jpg">
+<meta property="og:updated_time" content="2018-12-17T15:24:14.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="I’ll try anything once">
+<meta name="twitter:title" content="集成学习三部曲之Bagging">
+<meta name="twitter:description" content="简要因为我们之前总结了决策树的一些东西，那么紧接着我们就可以来讲讲集成学习了。集成学习会讲到以以下几个算法思想来建立的一些机器学习算法。  Bagging Boosting Stacking  那么本篇会开始第一个思想——Bagging">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/17/5c179896601c2.jpg">
 
 
 
@@ -111,6 +120,11 @@
 			<div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+				
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -126,42 +140,28 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">Categories</a></li>
-            
-            <li><a href="/categories/统计学习方法/">统计学习方法</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">决策树</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-image">
-        <a href="/2018/12/13/jueceshu3/" class="image is-7by1">
-            <img class="thumbnail" src="https://i.loli.net/2018/12/15/5c14fa3df095d.jpg" alt="决策树到底是棵什么树？(2)">
-        </a>
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://i.loli.net/2018/12/17/5c1776eb2fffb.jpg" alt="集成学习三部曲之Bagging">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-12-13T12:16:55.000Z">2018-12-13</time>
+                <time class="level-item has-text-grey" datetime="2018-12-17T08:44:59.000Z">2018-12-17</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/统计学习方法/">统计学习方法</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/统计学习方法/决策树/">决策树</a>
+                <a class="has-link-grey -link" href="/categories/统计学习方法/">统计学习方法</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/统计学习方法/集成学习三部曲/">集成学习三部曲</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 632 words)
+                    10 minutes read (About 1498 words)
                 </span>
                 
             </div>
@@ -169,142 +169,119 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/12/13/jueceshu3/">决策树到底是棵什么树？(2)</a>
+                集成学习三部曲之Bagging
             
         </h1>
         <div class="content">
-            <h2 id="简要"><a href="#简要" class="headerlink" title="简要"></a>简要</h2><p>前面我们提到了决策树的<strong>特征选择</strong>以及<strong>决策树的生成</strong>，那么想要让一棵树变得更好看，修剪则是有必要的，所以这篇文章会讲讲决策树算法三大步骤的最后一步——<strong>剪枝</strong>。<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/12/13/jueceshu3/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2018/12/11/jueceshu2/" class="image is-7by1">
-            <img class="thumbnail" src="https://i.loli.net/2018/12/15/5c14faa04f54f.jpg" alt="决策树到底是棵什么树？(1)">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-12-11T14:05:39.000Z">2018-12-11</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/统计学习方法/">统计学习方法</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/统计学习方法/决策树/">决策树</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    10 minutes read (About 1544 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/12/11/jueceshu2/">决策树到底是棵什么树？(1)</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="简要"><a href="#简要" class="headerlink" title="简要"></a>简要</h2><p>这篇文章主要讨论3个决策树算法，以及他们的缺点，知道了缺点才能知道改进的方向。</p>
+            <h2 id="简要"><a href="#简要" class="headerlink" title="简要"></a>简要</h2><p>因为我们之前总结了决策树的一些东西，那么紧接着我们就可以来讲讲集成学习了。集成学习会讲到以以下几个算法思想来建立的一些机器学习算法。</p>
 <ul>
-<li>ID3</li>
-<li>C4.5</li>
-<li>CART</li></ul>
+<li>Bagging</li>
+<li>Boosting</li>
+<li>Stacking</li>
+</ul>
+<p>那么本篇会开始第一个思想——Bagging</p>
+<a id="more"></a>
+<h2 id="什么是Bagging？"><a href="#什么是Bagging？" class="headerlink" title="什么是Bagging？"></a>什么是Bagging？</h2><blockquote>
+<p>bagging是一种用来提高学习算法准确度的方法，这种方法通过构造一个<strong>预测函数系列</strong>，然后以一定的方式将它们<strong>组合</strong>成一个<strong>预测函数</strong>。Bagging要求“不稳定”（不稳定是指数据集的小的变动能够使得分类结果的显著的变动）的分类方法。比如：决策树，神经网络算法。</p>
+</blockquote>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法<center></center></h2><p><img src="https://i.loli.net/2018/12/17/5c179896601c2.jpg"><br></p>
+<ul>
+<li>要进行的一个说明是<strong>预测函数系列</strong>中的每一个函数我们称作一个<strong>弱分类器</strong>或者叫<strong>基本分类器</strong>。</li>
+<li><strong>基本分类器</strong>的生成方法是（以决策树作为生成算法），从已有的数据集中<strong>随机</strong>提取n个数据（n要小于总的数据个数），用提取的这n个数据来进行模型的训练，要注意的是每次提取的n个数据都<strong>不完全相同</strong>（有相同的也有不同的数据），也就是说是进行的可放回的数据提取。</li>
+<li><strong>基本分类器</strong>之间不会互相影响，原因是因为数据是随机提取的，所以数据之间没有什么关联，模型也是单独训练的，所以模型相互之间不会造成影响，所以我们称<strong>Bagging</strong>为<strong>并行化方法</strong>（多个基本分类器可同时训练）。</li>
+<li>最后的输出则是采用的<strong>多数表决</strong>的方法，将多个<strong>基本分类器</strong>的输出中，出现次数最多的类别作为最后的结果。</li>
+</ul>
+<h2 id="什么样的基本分类器才算合格？"><a href="#什么样的基本分类器才算合格？" class="headerlink" title="什么样的基本分类器才算合格？"></a>什么样的基本分类器才算合格？</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子<center></center></h3><p><img src="https://i.loli.net/2018/12/17/5c179edb5d7d9.jpg"><br></p>
+<ul>
+<li>上图中 <strong>h<sub>1</sub></strong>,<strong>h<sub>2</sub></strong>,<strong>h<sub>3</sub></strong>分别是三个<strong>基础分类器</strong>，打√代表测试例子判断<strong>正确</strong>，打×表示判断<strong>错误</strong>。</li>
+<li>在(a)中每个<strong>基础分类器</strong>的正确率为66.6%，但最后的集成结果正确率达到了100%，这是我们最希望的集成结果，显然这个集成当中的三个<strong>基础分类器</strong>是合格的分类器。</li>
+<li>在(b)中每个<strong>基础分类器</strong>的正确率也为66.6%，但最后的集成结果正确率却只有66.6%，原因是三个<strong>基础分类器</strong>都太过相似，没有形成差异化，最后导致集成的结果跟不集成相比较没有提示，所以这个集成当中的三个<strong>基础分类器</strong>不是合格的分类器。</li>
+<li>(c)中就更加糟糕了，每个<strong>基础分类器</strong>的正确率只有33.3%，最后集成的函数的正确率为0%，这是最糟糕的<strong>基础分类器</strong>了。</li>
+</ul>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>那么根据上面的例子我们可以总结到，一个合格的<strong>基础分类器</strong>需要满足两个特点：</p>
+<ol>
+<li>准确性</li>
+<li>多样性</li>
+</ol>
+<ul>
+<li>准确性则是需要<strong>基础分类器</strong>的准确率至少要比随机乱分的概率（50%）要高。</li>
+<li>多样性则是需要各个<strong>基础分类器</strong>都不完全相同，即是给出的判断结果会有一定的差距（为了满足这一点，所以Bagging才选择对数据进行随机的提取来对<strong>基础分类器</strong>进行训练）。</li>
+</ul>
+<h2 id="随机森林-Random-Forest"><a href="#随机森林-Random-Forest" class="headerlink" title="随机森林(Random Forest)"></a>随机森林(Random Forest)</h2><blockquote>
+<p><strong>随机森林</strong>是在Bagging算法的思想之上，所被创造出来的最典型的一个并行机器学习算法，几乎每个提到Bagging的地方都会提到<strong>随机森林</strong>（当然我也要提一提[狗头]，他所用的<strong>基本分类器</strong>也是决策树，但它与Bagging又有稍许不同。因为前面的文章已经讲过决策树了，所以这里就可以自然而然的来到<strong>随机森林</strong>。</p>
+</blockquote>
+<h3 id="实现方法-1"><a href="#实现方法-1" class="headerlink" title="实现方法"></a>实现方法<center></center></h3><p><img src="https://i.loli.net/2018/12/17/5c17b4f91d428.jpg"><br></p>
+<ul>
+<li>总的来说它与Bagging不同的地方就在于对<strong>特征</strong>的选择也进行了一个随机，也就是<strong>二重随机性</strong>，<strong>特征随机</strong>以及<strong>数据随机</strong>。<strong>随机森林</strong>的训练效果往往会比Bagging好，原因是<strong>随机森林</strong>加入了<strong>特征随机</strong>。</li>
+<li>就是多增加了这样一个<strong>特征随机</strong>，使各个<strong>基本分类器</strong>之间的<strong>多样性</strong>有了一个更好的体现，即是各个<strong>基本分类器</strong>的差异更加明显，使最后的集成模型的<strong>泛化能力</strong>有了一个更好的提升。</li>
+<li>还有一个值得注意的事是，理论上来说随着<strong>基本分类器</strong>数量的增加，模型的<strong>泛化误差</strong>会一直降低，但实际中我们发现，当<strong>基本分类器</strong>到达一定的数量过后<strong>泛化误差</strong>的降低幅度会减小，逐渐的趋于一稳定的状态。</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>虽然随机森林对分类和回归问题都可以解决，但在分类问题上的效果要优于回归问题。因为它的预测不是天然连续的。</li>
+<li>对于噪声较大的数据，会让模型很容易产生过拟合。因为只要对数据有一点改动，整棵树都会发生改变。</li>
+</ul>
+<h2 id="终"><a href="#终" class="headerlink" title="终"></a>终</h2><blockquote>
+<p>以上就是对于Bagging的一些讨论，下一篇将会开始boosting的讨论。</p>
+</blockquote>
+<p><strong>Reference</strong>:<br>[1] 《机器学习》周志华<br>[2] <a href="https://baike.baidu.com/item/bagging/15454674" target="_blank" rel="noopener">百度百科 bagging</a><br>[3] <a href="https://en.wikipedia.org/wiki/Random_forest" target="_blank" rel="noopener">wikipedia Random Forest</a><br>[4] <a href="https://youtu.be/D_2LkhMJcfY" target="_blank" rel="noopener">YouTube Random Forest -Fun and Easy Machine Learning</a></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/12/11/jueceshu2/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/统计学习方法/">统计学习方法</a>
                 </div>
             </div>
         </div>
         
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/13/jueceshu3/">
+                <span class="level-item">决策树到底是棵什么树？(2)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
         
     </div>
 </div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: true,
+        verify: true,
+        app_id: 'ysd39JPGfphGN7UBCDhS10NQ-gzGzoHsz',
+        app_key: 'mPD3J7xTvQzOzsvKWjAbo43Y',
+        placeholder: 'Say something...'
+    });
+</script>
 
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2018/12/05/jiuceshu/" class="image is-7by1">
-            <img class="thumbnail" src="https://i.loli.net/2018/12/15/5c14f68879ab0.jpg" alt="决策树到底是棵什么树？(0)">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-12-05T12:00:06.000Z">2018-12-05</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/统计学习方法/">统计学习方法</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/统计学习方法/决策树/">决策树</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    11 minutes read (About 1701 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/12/05/jiuceshu/">决策树到底是棵什么树？(0)</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="简要"><a href="#简要" class="headerlink" title="简要"></a>简要</h2><p>因为最近在看决策树的知识，所以想做个总结。应该会分几篇来总结，主要讨论的是3个算法,讨论算法之前先来理一理数学公式。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/12/05/jiuceshu/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
-
-
-
-
-
 </div>
                 
 
@@ -391,6 +368,57 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#简要">
+        <span class="has-mr-6">1</span>
+        <span>简要</span>
+        </a></li><li>
+        <a class="is-flex" href="#什么是Bagging？">
+        <span class="has-mr-6">2</span>
+        <span>什么是Bagging？</span>
+        </a></li><li>
+        <a class="is-flex" href="#实现方法">
+        <span class="has-mr-6">3</span>
+        <span>实现方法</span>
+        </a></li><li>
+        <a class="is-flex" href="#什么样的基本分类器才算合格？">
+        <span class="has-mr-6">4</span>
+        <span>什么样的基本分类器才算合格？</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#例子">
+        <span class="has-mr-6">4.1</span>
+        <span>例子</span>
+        </a></li><li>
+        <a class="is-flex" href="#结论">
+        <span class="has-mr-6">4.2</span>
+        <span>结论</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#随机森林-Random-Forest">
+        <span class="has-mr-6">5</span>
+        <span>随机森林(Random Forest)</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#实现方法-1">
+        <span class="has-mr-6">5.1</span>
+        <span>实现方法</span>
+        </a></li><li>
+        <a class="is-flex" href="#缺点">
+        <span class="has-mr-6">5.2</span>
+        <span>缺点</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#终">
+        <span class="has-mr-6">6</span>
+        <span>终</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
